@@ -1,10 +1,26 @@
 <template>
   <div>
-    <p>Счетчик: {{ nextId }}</p>
+    <form @submit.prevent="addTodo">
+      <input 
+        v-model="newTodoText" 
+        type="text" 
+        placeholder="ЧЕэто?"
+      />
+      <button type="submit">Добавить</button>
+    </form>
+
+    <ul>
+      <li v-for="задача in todos" :key="задача.id">
+        {{ задача.id }} - {{ задача.text }}
+      </li>
+    </ul>
+
+    <!-- <p>Счетчик: {{ nextId }}</p>
     <input v-model="newTodoText" />
     <div v-for="задача in todos" :key="задача.id">
       {{ задача.id }} - {{ задача.text }}
-    </div>
+    </div>-->
+    
   </div>
 </template>
 
