@@ -11,7 +11,10 @@
 
     <ul>
       <li v-for="задача in todos" :key="задача.id">
-        {{ задача.id }} - {{ задача.text }}
+        <input type="checkbox" v-model="задача.completed" />
+        <span :class="{ completed: задача.completed }">
+          {{ задача.id }} - {{ задача.text }}
+        </span>
       </li>
     </ul>
 
@@ -34,3 +37,10 @@ const todos = ref([
   { id: 2, text: 'Задача 2', completed: false }
 ])
 </script>
+
+<style scoped>
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+</style>
